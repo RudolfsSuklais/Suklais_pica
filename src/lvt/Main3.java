@@ -11,6 +11,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -32,6 +33,7 @@ public class Main3 extends JFrame {
 	private JRadioButton rdbtnNewRadioButton;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
+	private JLabel lblNewLabel_3;
 
 	/**
 	 * Launch the application.
@@ -72,7 +74,13 @@ public class Main3 extends JFrame {
 		
 		ButtonGroup buttonGroup = new ButtonGroup(); 
 		
+		lblNewLabel_3 = new JLabel("Papildus Toppings ir?");
+		lblNewLabel_3.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
+		lblNewLabel_3.setBounds(74, 455, 201, 36);
+		contentPane.add(lblNewLabel_3);
+		
 	
+		
 		
 		rdbtnNewRadioButton = new JRadioButton("Lauku");
 		rdbtnNewRadioButton.setOpaque(false);
@@ -81,21 +89,44 @@ public class Main3 extends JFrame {
 		contentPane.add(rdbtnNewRadioButton);
 		buttonGroup.add(rdbtnNewRadioButton);
 		
-		btnNewButton_1 = new JButton("");
-		btnNewButton_1.addActionListener(new ActionListener(){
-	        	
+		  btnNewButton_1 = new JButton("");
+		  btnNewButton_1.addActionListener(new ActionListener() {
+			    public void actionPerformed(ActionEvent e) {
+			        boolean irTukss = textField.getText().isEmpty() || 
+			                (!rdbtnNewRadioButton.isSelected() && 
+			                !rdbtnNewRadioButton_1.isSelected() && 
+			                !rdbtnNewRadioButton_2.isSelected() && 
+			                !rdbtnNewRadioButton_3.isSelected() && 
+			                !rdbtnNewRadioButton_4.isSelected());
+			        
+			        if (irTukss) {
+			            
+			           
+			            if (textField.getText().isEmpty()) {
+			                textField.setBorder(new LineBorder(Color.RED, 1, true));
+			            }
+			            if (!rdbtnNewRadioButton.isSelected() && !rdbtnNewRadioButton_1.isSelected() && !rdbtnNewRadioButton_2.isSelected() && !rdbtnNewRadioButton_3.isSelected() && !rdbtnNewRadioButton_4.isSelected()) {
+			                rdbtnNewRadioButton.setForeground(Color.RED);
+			                rdbtnNewRadioButton_1.setForeground(Color.RED);
+			                rdbtnNewRadioButton_2.setForeground(Color.RED);
+			                rdbtnNewRadioButton_3.setForeground(Color.RED);
+			                rdbtnNewRadioButton_4.setForeground(Color.RED);
+			                
+			            }
+			        } else {
+			            Main4 sf = new Main4(); 
+			            sf.setVisible(true);
+			            dispose();
+			        }
+			    }
+			});
 
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					
-				} 
-	        });
-		btnNewButton_1.setBounds(177, 630, 165, 61);
-		btnNewButton_1.setOpaque(false); 
-		btnNewButton_1.setContentAreaFilled(false); 
-		btnNewButton_1.setBorderPainted(false);
-		btnNewButton_1.setBorder(new LineBorder(new Color(255, 255, 255, 100), 2));
-		contentPane.add(btnNewButton_1);
+	        btnNewButton_1.setBounds(177, 630, 165, 61);
+	        btnNewButton_1.setOpaque(false); 
+	        btnNewButton_1.setContentAreaFilled(false); 
+	        btnNewButton_1.setBorderPainted(false);
+	        btnNewButton_1.setBorder(new LineBorder(new Color(255, 255, 255, 100), 2));
+	        contentPane.add(btnNewButton_1);
 		
 		rdbtnNewRadioButton_4 = new JRadioButton("Salami");
 		rdbtnNewRadioButton_4.setOpaque(false);
