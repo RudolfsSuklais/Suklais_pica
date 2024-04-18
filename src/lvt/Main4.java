@@ -1,10 +1,13 @@
 package lvt;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
 
 public class Main4 extends JFrame {
 
@@ -32,11 +35,17 @@ public class Main4 extends JFrame {
 	 */
 	public Main4() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 800, 800);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		Image bilde = new ImageIcon(this.getClass().getResource("/Main4.png")).getImage();
+		lblNewLabel.setBounds(0, 0, 784, 761);
+		contentPane.add(lblNewLabel);
 	}
 
 }

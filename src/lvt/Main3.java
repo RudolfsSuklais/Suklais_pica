@@ -34,6 +34,8 @@ public class Main3 extends JFrame {
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JLabel lblNewLabel_3;
+	private JButton pogaJa;
+	private JButton pogaNe;
 
 	/**
 	 * Launch the application.
@@ -76,7 +78,7 @@ public class Main3 extends JFrame {
 		
 		lblNewLabel_3 = new JLabel("Papildus Toppings ir?");
 		lblNewLabel_3.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		lblNewLabel_3.setBounds(74, 455, 201, 36);
+		lblNewLabel_3.setBounds(74, 467, 201, 36);
 		contentPane.add(lblNewLabel_3);
 		
 	
@@ -179,6 +181,32 @@ public class Main3 extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(bilde));
 		lblNewLabel.setBounds(0, 0, 784, 761);
 		contentPane.add(lblNewLabel);
+		
+		pogaNe = new JButton("");
+		pogaNe.setOpaque(false);
+		pogaNe.setContentAreaFilled(false);
+		pogaNe.setBorderPainted(false);
+		pogaNe.setBorder(new LineBorder(new Color(255, 255, 255, 100), 2));
+		pogaNe.setBounds(188, 508, 103, 42);
+		contentPane.add(pogaNe);
+		
+		pogaJa = new JButton("");
+		pogaJa.addActionListener(new ActionListener(){
+        	
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Main4 sf = new Main4(); 
+				sf.setVisible(true);
+				dispose();
+			} 
+        });
+		pogaJa.setBounds(73, 508, 103, 42);
+		pogaJa.setOpaque(false); 
+		pogaJa.setContentAreaFilled(false); 
+		pogaJa.setBorderPainted(false);
+		pogaJa.setBorder(new LineBorder(new Color(255, 255, 255, 100), 2));
+		contentPane.add(pogaJa);
 		
 		if (rdbtnNewRadioButton_1 == null || rdbtnNewRadioButton_2 == null || rdbtnNewRadioButton_3 == null || rdbtnNewRadioButton_4 == null || rdbtnNewRadioButton == null)
 			kluda += 1;
