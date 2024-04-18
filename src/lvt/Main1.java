@@ -12,7 +12,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -46,6 +45,7 @@ public class Main1 extends JFrame {
 	 * Create the frame.
 	 */
 	public Main1() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 800);
 		contentPane = new JPanel();
@@ -57,20 +57,21 @@ public class Main1 extends JFrame {
 		JLabel lblNewLabel = new JLabel("");
 		Image bilde = new ImageIcon(this.getClass().getResource("/Main1.png")).getImage();
 		
-		JButton btnNewButton = new JButton("Spēlēt");
+		JButton btnNewButton = new JButton("Spelet");
 		 btnNewButton.addActionListener(new ActionListener(){
 	        	
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(null, "Sveiks!");
-					
-				}
+					Main2 sf = new Main2(); 
+					sf.setVisible(true);
+					dispose();
+				} 
 	        });
 		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 27));
+		btnNewButton.setFont(new Font("Gill Sans Ultra Bold", Font.PLAIN, 28));
 	
-		btnNewButton.setBounds(241, 270, 312, 100);
+		btnNewButton.setBounds(241, 272, 312, 100);
 		 btnNewButton.setOpaque(false); 
 	        btnNewButton.setContentAreaFilled(false); 
 	        btnNewButton.setBorderPainted(false);
