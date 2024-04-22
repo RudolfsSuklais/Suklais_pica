@@ -63,6 +63,7 @@ public class Main2 extends JFrame {
 			} 
         });
 	
+		
 	JButton btnNewButton_1 = new JButton("Pievienot sutijumu");
 	btnNewButton_1.setOpaque(false);
 	btnNewButton_1.setForeground(Color.WHITE);

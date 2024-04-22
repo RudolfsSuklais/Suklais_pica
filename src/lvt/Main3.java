@@ -36,7 +36,9 @@ public class Main3 extends JFrame {
 	private JLabel lblNewLabel_3;
 	private JButton pogaJa;
 	private JButton pogaNe;
-
+	private int toppings = 3;
+	private JLabel lblNewLabel_4;
+	private JLabel lblNewLabel_5;
 	/**
 	 * Launch the application.
 	 */
@@ -76,6 +78,18 @@ public class Main3 extends JFrame {
 		
 		ButtonGroup buttonGroup = new ButtonGroup(); 
 		
+		lblNewLabel_5 = new JLabel("Ne");
+		lblNewLabel_5.setForeground(Color.WHITE);
+		lblNewLabel_5.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 22));
+		lblNewLabel_5.setBounds(226, 514, 46, 36);
+		contentPane.add(lblNewLabel_5);
+		
+		lblNewLabel_4 = new JLabel("Ja");
+		lblNewLabel_4.setForeground(new Color(255, 255, 255));
+		lblNewLabel_4.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 22));
+		lblNewLabel_4.setBounds(106, 514, 46, 36);
+		contentPane.add(lblNewLabel_4);
+		
 		lblNewLabel_3 = new JLabel("Papildus Toppings ir?");
 		lblNewLabel_3.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblNewLabel_3.setBounds(74, 467, 201, 36);
@@ -99,7 +113,8 @@ public class Main3 extends JFrame {
 			                !rdbtnNewRadioButton_1.isSelected() && 
 			                !rdbtnNewRadioButton_2.isSelected() && 
 			                !rdbtnNewRadioButton_3.isSelected() && 
-			                !rdbtnNewRadioButton_4.isSelected());
+			                !rdbtnNewRadioButton_4.isSelected()) ||
+			                (pogaJa.isSelected() && pogaNe.isSelected());
 			        
 			        if (irTukss) {
 			            
@@ -115,10 +130,20 @@ public class Main3 extends JFrame {
 			                rdbtnNewRadioButton_4.setForeground(Color.RED);
 			                
 			            }
+			            if(toppings==3) {
+			            	lblNewLabel_3.setForeground(Color.RED);
+			            }
 			        } else {
+			        	if (toppings == 1) {
 			            Main4 sf = new Main4(); 
 			            sf.setVisible(true);
 			            dispose();
+			        	}else if (toppings == 0) {
+			        		 Main5 df = new Main5(); 
+					            df.setVisible(true);
+					            dispose();
+			        	}
+			        		
 			        }
 			    }
 			});
@@ -183,6 +208,16 @@ public class Main3 extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		pogaNe = new JButton("");
+		pogaNe.addActionListener(new ActionListener(){
+        	
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				toppings=0;
+				lblNewLabel_5.setForeground(Color.gray);
+				lblNewLabel_4.setForeground(Color.WHITE);
+			} 
+        });
 		pogaNe.setOpaque(false);
 		pogaNe.setContentAreaFilled(false);
 		pogaNe.setBorderPainted(false);
@@ -196,9 +231,9 @@ public class Main3 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Main4 sf = new Main4(); 
-				sf.setVisible(true);
-				dispose();
+				toppings=1;
+				lblNewLabel_4.setForeground(Color.gray);
+				lblNewLabel_5.setForeground(Color.WHITE);
 			} 
         });
 		pogaJa.setBounds(73, 508, 103, 42);
