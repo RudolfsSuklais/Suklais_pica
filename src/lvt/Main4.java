@@ -7,14 +7,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.JLayeredPane;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
 
 public class Main4 extends JFrame {
 
@@ -113,10 +115,46 @@ public class Main4 extends JFrame {
 		checkBoxHalapeno.setBounds(185, 592, 47, 44);
 		panel.add(checkBoxHalapeno);
 		
+		
+		 ImageIcon background = new ImageIcon("background.jpg"); // Nomaini "background.jpg" ar savas fona attēla faila nosaukumu
+	        JFrame frame = new JFrame("Main Window");
+	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);				
+		
+						JButton btnNewButton = new JButton("");
+						btnNewButton.addActionListener(new ActionListener(){
+				        	
+							
+							
+							public void actionPerformed(ActionEvent e) {
+								 boolean irTukss = (!checkBoxSiers.isSelected()&&!checkBoxSenes.isSelected()&&!checkBoxMaltaGala.isSelected()&&!checkBoxOlives.isSelected()
+										 &&!checkBoxAnanass.isSelected()&&!checkBoxHalapeno.isSelected());
+								 
+								 if (irTukss) {
+									 JOptionPane optionPane = new JOptionPane("Izvēlies vismaz vienu Toppingu!", JOptionPane.WARNING_MESSAGE);
+									 JDialog dialog = optionPane.createDialog("Brīdinājums");
+									 dialog.setLocation(400, 400); 
+									 dialog.setVisible(true);
+
+
+										}else {
+								Main5 sf = new Main5(); 
+								sf.setVisible(true);
+								dispose();
+							} 
+							}//nezinu 
+				        });
+						
+						btnNewButton.setBounds(312, 642, 165, 62);
+						btnNewButton.setOpaque(false); 
+						btnNewButton.setContentAreaFilled(false); 
+						btnNewButton.setBorderPainted(false);
+						btnNewButton.setBorder(new LineBorder(new Color(255, 255, 255, 100), 2));
+						panel.add(btnNewButton);
 				
-				JLabel sakums = new JLabel("");
-				sakums.setIcon(new ImageIcon(bilde));
-				sakums.setBounds(1, 0, 783, 763);
-				panel.add(sakums);
+						
+						JLabel sakums = new JLabel("");
+						sakums.setIcon(new ImageIcon(bilde));
+						sakums.setBounds(1, 0, 783, 763);
+						panel.add(sakums);
 	}
 }
