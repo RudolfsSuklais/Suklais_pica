@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 import javax.print.attribute.AttributeSet;
 import javax.swing.ImageIcon;
@@ -72,7 +74,28 @@ public class Main7 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				 String vardss = vards.getText();
+		         if (!vardss.isEmpty()) {
+		        	 saglabaVarduFaila(vardss);
+		         }
+		         String uzvardss = uzvards.getText();
+		         if (!uzvardss.isEmpty()) {
+		        	 saglabaUzvarduFaila(uzvardss); 
+		         }
+		         String telnr = telNr.getText();
+		         if (!telnr.isEmpty()) {
+		        	 saglabaTelNr(telnr); 
+		         }
+		         String adrese = Adrese.getText();
+		         if (!adrese.isEmpty()) {
+		        	 saglabaAdresi(adrese); 
+		         }
+		         String indekss = pastaIndekss.getText();
+		         if (!indekss.isEmpty()) {
+		        	 saglabaPastaIndeksu(indekss); 
+		         }
+		         
+		         
 				boolean irTukss = (vards.getText().isEmpty() || uzvards.getText().isEmpty() ||
 									telNr.getText().isEmpty() || Adrese.getText().isEmpty() || pastaIndekss.getText().isEmpty());
 				
@@ -173,4 +196,60 @@ public class Main7 extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(bilde));
 		contentPane.add(lblNewLabel);
 	}
+	private void saglabaVarduFaila(String vardss) {
+	    String fails = "vards.txt";
+	    
+	    try (PrintWriter wr = new PrintWriter(fails)) {
+	        wr.println(vardss); 
+	    } catch (FileNotFoundException e) {
+	        System.err.println("Kļūda: Neizdevās saglabāt pasūtījuma nosaukumu failā " + fails);
+	        e.printStackTrace();
+	    }
+	}
+
+	private void saglabaUzvarduFaila(String uzvardss) {
+	    String fails = "uzvards.txt";
+	    
+	    try (PrintWriter wr = new PrintWriter(fails)) {
+	        wr.println(uzvardss); 
+	    } catch (FileNotFoundException e) {
+	        System.err.println("Kļūda: Neizdevās saglabāt pasūtījuma nosaukumu failā " + fails);
+	        e.printStackTrace();
+	    }
+	}
+	
+	private void saglabaTelNr(String telnr) {
+	    String fails = "telNr.txt";
+	    
+	    try (PrintWriter wr = new PrintWriter(fails)) {
+	        wr.println(telnr); 
+	    } catch (FileNotFoundException e) {
+	        System.err.println("Kļūda: Neizdevās saglabāt pasūtījuma nosaukumu failā " + fails);
+	        e.printStackTrace();
+	    }
+	}
+	
+	private void saglabaAdresi(String adrese) {
+	    String fails = "adrese.txt";
+	    
+	    try (PrintWriter wr = new PrintWriter(fails)) {
+	        wr.println(adrese); 
+	    } catch (FileNotFoundException e) {
+	        System.err.println("Kļūda: Neizdevās saglabāt pasūtījuma nosaukumu failā " + fails);
+	        e.printStackTrace();
+	    }
+	}
+	
+	private void saglabaPastaIndeksu(String pastaIndekss) {
+	    String fails = "pastaIndekss.txt";
+	    
+	    try (PrintWriter wr = new PrintWriter(fails)) {
+	        wr.println(pastaIndekss); 
+	    } catch (FileNotFoundException e) {
+	        System.err.println("Kļūda: Neizdevās saglabāt pasūtījuma nosaukumu failā " + fails);
+	        e.printStackTrace();
+	    }
+	}
+	
+	
 }

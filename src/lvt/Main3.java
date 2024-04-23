@@ -118,19 +118,19 @@ public class Main3 extends JFrame {
 			        	 saglabaNosaukumuFaila(nosaukums);
 			         }
 			    	
-			         if(!rdbtnNewRadioButton.isSelected()) {
+			         if(rdbtnNewRadioButton.isSelected()) {
 			        	 saglabaPicuFaila("Lauku");
 			         }
-			         if(!rdbtnNewRadioButton_1.isSelected()) {
+			         if(rdbtnNewRadioButton_1.isSelected()) {
 			        	 saglabaPicuFaila("Pikantā");
 			         }
-			         if(!rdbtnNewRadioButton_2.isSelected()) {
+			         if(rdbtnNewRadioButton_2.isSelected()) {
 			        	 saglabaPicuFaila("Šķiņķa");
 			         }
-			         if(!rdbtnNewRadioButton_3.isSelected()) {
+			         if(rdbtnNewRadioButton_3.isSelected()) {
 			        	 saglabaPicuFaila("Margarita");
 			         }
-			         if(!rdbtnNewRadioButton_4.isSelected()) {
+			         if(rdbtnNewRadioButton_4.isSelected()) {
 			        	 saglabaPicuFaila("Salami");
 			         }
 			         

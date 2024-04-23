@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -88,7 +90,16 @@ public class Main5 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				 if(rdbtnNewRadioButton.isSelected()) {
+					 sagalabaDiametruFaila(50);
+		         }
+		         if(rdbtnNewRadioButton_1.isSelected()) {
+		        	 sagalabaDiametruFaila(30);
+		         }
+		         if(rdbtnNewRadioButton_2.isSelected()) {
+		        	 sagalabaDiametruFaila(20);
+		         }
+		        
 				 boolean irTukss = (!rdbtnNewRadioButton.isSelected() && 
 			                !rdbtnNewRadioButton_1.isSelected() && 
 			                !rdbtnNewRadioButton_2.isSelected());
@@ -107,5 +118,19 @@ public class Main5 extends JFrame {
 	    btnNewButton.setBorderPainted(false);
 	    btnNewButton.setBorder(new LineBorder(new Color(255, 255, 255, 100), 2));
 		contentPane.add(btnNewButton);
+	}
+	private void sagalabaDiametruFaila(int diametrs) {
+		 
+	    String fails = "picasDiametrs.txt";
+	    
+	    try (PrintWriter wr = new PrintWriter(fails)) {
+	        
+	        wr.println(diametrs);
+	        
+	        
+	    } catch (FileNotFoundException e) {
+	        System.err.println("Kļūda: Neizdevās saglabāt picas veidu failā " + fails);
+	        e.printStackTrace();
+	    }
 	}
 }
