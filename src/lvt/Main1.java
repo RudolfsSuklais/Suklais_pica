@@ -57,7 +57,7 @@ public class Main1 extends JFrame {
 		JLabel lblNewLabel = new JLabel("");
 		Image bilde = new ImageIcon(this.getClass().getResource("/Main1.png")).getImage();
 		
-		JButton btnNewButton = new JButton("Spelet");
+		JButton btnNewButton = new JButton("");
 		 btnNewButton.addActionListener(new ActionListener(){
 	        	
 
@@ -71,7 +71,7 @@ public class Main1 extends JFrame {
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setFont(new Font("Gill Sans Ultra Bold", Font.PLAIN, 28));
 	
-		btnNewButton.setBounds(241, 272, 312, 100);
+		btnNewButton.setBounds(245, 370, 312, 79);
 		 btnNewButton.setOpaque(false); 
 	        btnNewButton.setContentAreaFilled(false); 
 	        btnNewButton.setBorderPainted(false);

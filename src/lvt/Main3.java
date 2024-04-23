@@ -6,18 +6,19 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.JButton;
 
 public class Main3 extends JFrame {
 
@@ -39,6 +40,7 @@ public class Main3 extends JFrame {
 	private int toppings = 3;
 	private JLabel lblNewLabel_4;
 	private JLabel lblNewLabel_5;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -58,11 +60,11 @@ public class Main3 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+
 	public Main3() {
 		
-		
-		
-		
+	
+		 
 		int kluda = 0;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -99,6 +101,8 @@ public class Main3 extends JFrame {
 		
 		
 		rdbtnNewRadioButton = new JRadioButton("Lauku");
+		rdbtnNewRadioButton.setIcon(new ImageIcon(this.getClass().getResource("/radioButtonUnchecked.png")));
+		rdbtnNewRadioButton.setSelectedIcon(new ImageIcon(this.getClass().getResource("/radioButtonChecked.png")));
 		rdbtnNewRadioButton.setOpaque(false);
 		rdbtnNewRadioButton.setFont(new Font("Trebuchet MS", Font.ITALIC, 16));
 		rdbtnNewRadioButton.setBounds(182, 320, 109, 23);
@@ -107,7 +111,29 @@ public class Main3 extends JFrame {
 		
 		  btnNewButton_1 = new JButton("");
 		  btnNewButton_1.addActionListener(new ActionListener() {
+			  
 			    public void actionPerformed(ActionEvent e) {
+			    	 String nosaukums = textField.getText();
+			         if (!nosaukums.isEmpty()) {
+			        	 saglabaNosaukumuFaila(nosaukums);
+			         }
+			    	
+			         if(!rdbtnNewRadioButton.isSelected()) {
+			        	 saglabaPicuFaila("Lauku");
+			         }
+			         if(!rdbtnNewRadioButton_1.isSelected()) {
+			        	 saglabaPicuFaila("Pikantā");
+			         }
+			         if(!rdbtnNewRadioButton_2.isSelected()) {
+			        	 saglabaPicuFaila("Šķiņķa");
+			         }
+			         if(!rdbtnNewRadioButton_3.isSelected()) {
+			        	 saglabaPicuFaila("Margarita");
+			         }
+			         if(!rdbtnNewRadioButton_4.isSelected()) {
+			        	 saglabaPicuFaila("Salami");
+			         }
+			         
 			        boolean irTukss = textField.getText().isEmpty() || 
 			                (!rdbtnNewRadioButton.isSelected() && 
 			                !rdbtnNewRadioButton_1.isSelected() && 
@@ -138,10 +164,12 @@ public class Main3 extends JFrame {
 			            Main4 sf = new Main4(); 
 			            sf.setVisible(true);
 			            dispose();
+			            
 			        	}else if (toppings == 0) {
 			        		 Main5 df = new Main5(); 
 					            df.setVisible(true);
 					            dispose();
+					           
 			        	}
 			        		
 			        }
@@ -156,6 +184,8 @@ public class Main3 extends JFrame {
 	        contentPane.add(btnNewButton_1);
 		
 		rdbtnNewRadioButton_4 = new JRadioButton("Salami");
+		rdbtnNewRadioButton_4.setIcon(new ImageIcon(this.getClass().getResource("/radioButtonUnchecked.png")));
+		rdbtnNewRadioButton_4.setSelectedIcon(new ImageIcon(this.getClass().getResource("/radioButtonChecked.png")));
 		rdbtnNewRadioButton_4.setOpaque(false);
 		rdbtnNewRadioButton_4.setFont(new Font("Trebuchet MS", Font.ITALIC, 16));
 		rdbtnNewRadioButton_4.setBounds(182, 425, 109, 23);
@@ -163,6 +193,8 @@ public class Main3 extends JFrame {
 		buttonGroup.add(rdbtnNewRadioButton_4);
 		
 		rdbtnNewRadioButton_3 = new JRadioButton("Margarita");
+		rdbtnNewRadioButton_3.setIcon(new ImageIcon(this.getClass().getResource("/radioButtonUnchecked.png")));
+		rdbtnNewRadioButton_3.setSelectedIcon(new ImageIcon(this.getClass().getResource("/radioButtonChecked.png")));
 		rdbtnNewRadioButton_3.setOpaque(false);
 		rdbtnNewRadioButton_3.setFont(new Font("Trebuchet MS", Font.ITALIC, 16));
 		rdbtnNewRadioButton_3.setBounds(182, 399, 109, 23);
@@ -170,6 +202,8 @@ public class Main3 extends JFrame {
 		buttonGroup.add(rdbtnNewRadioButton_3);
 		
 		rdbtnNewRadioButton_2 = new JRadioButton("Šķiņķa");
+		rdbtnNewRadioButton_2.setIcon(new ImageIcon(this.getClass().getResource("/radioButtonUnchecked.png")));
+		rdbtnNewRadioButton_2.setSelectedIcon(new ImageIcon(this.getClass().getResource("/radioButtonChecked.png")));
 		rdbtnNewRadioButton_2.setOpaque(false);
 		rdbtnNewRadioButton_2.setFont(new Font("Trebuchet MS", Font.ITALIC, 16));
 		rdbtnNewRadioButton_2.setBounds(182, 373, 109, 23);
@@ -198,6 +232,8 @@ public class Main3 extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		rdbtnNewRadioButton_1 = new JRadioButton("Pikantā");
+		rdbtnNewRadioButton_1.setIcon(new ImageIcon(this.getClass().getResource("/radioButtonUnchecked.png")));
+		rdbtnNewRadioButton_1.setSelectedIcon(new ImageIcon(this.getClass().getResource("/radioButtonChecked.png")));
 		rdbtnNewRadioButton_1.setOpaque(false);
 		rdbtnNewRadioButton_1.setFont(new Font("Trebuchet MS", Font.ITALIC, 16));
 		rdbtnNewRadioButton_1.setBounds(182, 346, 109, 23);
@@ -245,5 +281,40 @@ public class Main3 extends JFrame {
 		
 		if (rdbtnNewRadioButton_1 == null || rdbtnNewRadioButton_2 == null || rdbtnNewRadioButton_3 == null || rdbtnNewRadioButton_4 == null || rdbtnNewRadioButton == null)
 			kluda += 1;
+	
+	        
 	}
+	private void saglabaNosaukumuFaila(String nosaukums) {
+	   
+	    String fails = "pasutijumaNosaukums.txt";
+	    
+	    try (PrintWriter wr = new PrintWriter(fails)) {
+	        
+	        wr.println(nosaukums);
+	        
+	       
+	    } catch (FileNotFoundException e) {
+	        System.err.println("Kļūda: Neizdevās saglabāt pasūtījuma nosaukumu failā " + fails);
+	        e.printStackTrace();
+	    }
+	}
+	
+	
+	private void saglabaPicuFaila(String picasVeids) {
+	 
+	    String fails = "picasVeids.txt";
+	    
+	    try (PrintWriter wr = new PrintWriter(fails)) {
+	        
+	        wr.println(picasVeids);
+	        
+	        
+	    } catch (FileNotFoundException e) {
+	        System.err.println("Kļūda: Neizdevās saglabāt picas veidu failā " + fails);
+	        e.printStackTrace();
+	    }
+	}
+
+	
+	
 }

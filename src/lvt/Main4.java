@@ -5,15 +5,17 @@ import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -22,6 +24,7 @@ public class Main4 extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	
 
 	/**
 	 * Launch the application.
@@ -42,7 +45,14 @@ public class Main4 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
+	
+	
 	public Main4() {
+	
+		List<String> izveletieToppingi = new ArrayList<>();
+		
+		
 		Image bilde = new ImageIcon(this.getClass().getResource("/Main4.png")).getImage();
 		Image bilde1 = new ImageIcon(this.getClass().getResource("/Main4.1.png")).getImage();
 		Image bilde2 = new ImageIcon(this.getClass().getResource("/Main4.2.png")).getImage();
@@ -116,9 +126,8 @@ public class Main4 extends JFrame {
 		panel.add(checkBoxHalapeno);
 		
 		
-		 ImageIcon background = new ImageIcon("background.jpg"); // Nomaini "background.jpg" ar savas fona attēla faila nosaukumu
-	        JFrame frame = new JFrame("Main Window");
-	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);				
+		
+	     			
 		
 						JButton btnNewButton = new JButton("");
 						btnNewButton.addActionListener(new ActionListener(){
@@ -126,22 +135,41 @@ public class Main4 extends JFrame {
 							
 							
 							public void actionPerformed(ActionEvent e) {
+								if (checkBoxSiers.isSelected()) {
+									izveletieToppingi.add("Siers");
+								}
+								if (checkBoxSenes.isSelected()) {
+									izveletieToppingi.add("Sēnes");
+								}
+								if (checkBoxMaltaGala.isSelected()) {
+									izveletieToppingi.add("Maltā gaļa");
+								}
+								if (checkBoxOlives.isSelected()) {
+									izveletieToppingi.add("Olīves");
+								}
+								if (checkBoxAnanass.isSelected()) {
+									izveletieToppingi.add("Ananass");
+								}
+								if (checkBoxHalapeno.isSelected()) {
+									izveletieToppingi.add("Halapeno");
+								}
+								saglabaToppingsFaila(izveletieToppingi);
+								
 								 boolean irTukss = (!checkBoxSiers.isSelected()&&!checkBoxSenes.isSelected()&&!checkBoxMaltaGala.isSelected()&&!checkBoxOlives.isSelected()
 										 &&!checkBoxAnanass.isSelected()&&!checkBoxHalapeno.isSelected());
 								 
 								 if (irTukss) {
-									 JOptionPane optionPane = new JOptionPane("Izvēlies vismaz vienu Toppingu!", JOptionPane.WARNING_MESSAGE);
-									 JDialog dialog = optionPane.createDialog("Brīdinājums");
-									 dialog.setLocation(400, 400); 
-									 dialog.setVisible(true);
+									 Main6 sf = new Main6(); 
+										sf.setVisible(true);
 
 
 										}else {
 								Main5 sf = new Main5(); 
+								
 								sf.setVisible(true);
 								dispose();
 							} 
-							}//nezinu 
+							}
 				        });
 						
 						btnNewButton.setBounds(312, 642, 165, 62);
@@ -156,5 +184,28 @@ public class Main4 extends JFrame {
 						sakums.setIcon(new ImageIcon(bilde));
 						sakums.setBounds(1, 0, 783, 763);
 						panel.add(sakums);
+					
+						
 	}
+	private void saglabaToppingsFaila(List<String> toppings) {
+	    
+	    String fails = "izveletieToppingi.txt";
+	    
+	    try (PrintWriter wr = new PrintWriter(fails)) {
+	       
+	        for (String toppingi : toppings) {
+	            wr.println(toppingi);
+	        }
+	        
+	       
+	    } catch (FileNotFoundException e) {
+	        System.err.println("Kļūda: Neizdevās saglabāt informāciju failā " + fails);
+	        e.printStackTrace();
+	    }
+	}
+	
+	
+
+	
+	
 }
