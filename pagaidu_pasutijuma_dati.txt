@@ -1,0 +1,12 @@
+Pica: DAWDAD, Veids: Lauku, Toppings: [Siers], Picas Diametrs: 50
+ Piegāde informācija:
+Vārds: DADAD, Uzvārds: ADAD, Tel. nr.: AWDAWD, Adrese: ADADA, Pasta Indekss: DAWD
+Pica: adadawdad, Veids: Lauku, Toppings: [Siers, Sēnes, Maltā gaļa, Olīves, Ananass, Halapeno], Picas Diametrs: 20
+ Piegāde informācija:
+Vārds: awdawd, Uzvārds: adaw, Tel. nr.: dawd, Adrese: awdad, Pasta Indekss: adaw
+Pica: Kristers, Veids: Šķiņķa, Toppings: [Siers, Maltā gaļa, Ananass], Picas Diametrs: 30
+ Piegāde informācija:
+Vārds: Kristers, Uzvārds: Apinis, Tel. nr.: 20021919, Adrese: Liepaja, venstpils iela, Pasta Indekss: 3405
+Pica: adawd, Veids: Lauku, Toppings: [Siers, Sēnes, Maltā gaļa], Picas Diametrs: 50
+ Piegāde informācija:
+Vārds: awdaddaw, Uzvārds: awdada, Tel. nr.: daaw, Adrese: ddawda, Pasta Indekss: awda

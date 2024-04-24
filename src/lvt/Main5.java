@@ -6,6 +6,8 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.swing.ButtonGroup;
@@ -92,12 +94,15 @@ public class Main5 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				 if(rdbtnNewRadioButton.isSelected()) {
 					 sagalabaDiametruFaila(50);
+					 saglabaCenuFaila(5);
 		         }
 		         if(rdbtnNewRadioButton_1.isSelected()) {
 		        	 sagalabaDiametruFaila(30);
+		        	 saglabaCenuFaila(3);
 		         }
 		         if(rdbtnNewRadioButton_2.isSelected()) {
 		        	 sagalabaDiametruFaila(20);
+		        	 saglabaCenuFaila(1.5);
 		         }
 		        
 				 boolean irTukss = (!rdbtnNewRadioButton.isSelected() && 
@@ -133,4 +138,15 @@ public class Main5 extends JFrame {
 	        e.printStackTrace();
 	    }
 	}
+	private void saglabaCenuFaila(double cena) {
+	    String fails = "cenas.txt";
+	    
+	    try (PrintWriter wr = new PrintWriter(new FileWriter(fails, true))) {
+	        wr.println(cena);
+	    } catch (IOException e) {
+	        System.err.println("Kļūda: Neizdevās saglabāt cenu failā " + fails);
+	        
+	    }
+	}
+	
 }

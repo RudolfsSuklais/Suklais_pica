@@ -5,18 +5,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 
 public class Apskatit extends JFrame {
 
@@ -24,6 +25,8 @@ public class Apskatit extends JFrame {
     private JPanel contentPane;
     private JList<String> list; 
    
+    private static final String FAILS = "pagaidu_pasutijuma_dati.txt";
+ 
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -31,8 +34,9 @@ public class Apskatit extends JFrame {
                 try {
                 	 Apskatit frame = new Apskatit();
                      frame.setVisible(true);
-                     pica picasObjekts = frame.nolasitUnSaglabatInformaciju();
-                     Faili.ierakstitObjektuFaila(picasObjekts);
+                    
+                    
+                     
                     
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -41,7 +45,11 @@ public class Apskatit extends JFrame {
         });
     }
 
-    public Apskatit() {
+ public Apskatit() {
+	 
+	 pica picasObjekts = nolasitUnSaglabatInformaciju();
+	 ierakstitObjektuFaila(picasObjekts);
+    	
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 800, 800);
         contentPane = new JPanel();
@@ -49,43 +57,39 @@ public class Apskatit extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
+  
+
         list = new JList<String>();
         list.setBounds(23, 31, 711, 499);
         contentPane.add(list);
-        
-        JButton btnNewButton = new JButton("New button");
-        btnNewButton.addActionListener(new ActionListener(){
+
+        JButton btnNewButton = new JButton("Ielādēt pasūtījumus");
+        btnNewButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Call the method to read and display information from the file
+                
                 nolasitUnParaditInformaciju();
-            } 
+            }
         });
-        btnNewButton.setBounds(281, 541, 89, 23);
+        btnNewButton.setBounds(281, 541, 200, 23);
         contentPane.add(btnNewButton);
-
-        
     }
+
     public void nolasitUnParaditInformaciju() {
         ArrayList<String> saraksts = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("pasutijumu_dati.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(FAILS))) {
             String line;
             while ((line = br.readLine()) != null) {
                 saraksts.add(line);
             }
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Kļūda nolasot failu pasutijumu_dati.txt", "Kļūda", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Kļūda nolasot failu " + FAILS, "Kļūda", JOptionPane.ERROR_MESSAGE);
         }
-        
-        // Izveidojam jaunu modeli JList elementiem
+
         DefaultListModel<String> DLM = new DefaultListModel<>();
-        
-        // Pievienojam katru elementu no saraksta uz JList modeli
         for (String element : saraksts) {
             DLM.addElement(element);
         }
-        
-        // Iestatam JList modeli
         list.setModel(DLM);
     }
 
@@ -173,17 +177,17 @@ public class Apskatit extends JFrame {
       
         return new pica(pasutijumaNosaukums, picasVeids, izveletieToppingi, picasDiametrs, vards, uzvards, telNr, adrese, pastaIndekss);
     }
-    public class Faili {
-        private static final String FAILS = "pasutijumu_dati.txt";
+  
+ 
 
-        public static void ierakstitObjektuFaila(pica pica) {
+        private static void ierakstitObjektuFaila(pica pica) {
             try (BufferedWriter wr = new BufferedWriter(new FileWriter(FAILS, true))) {
-                
                 wr.write(pica.toString());
                 wr.newLine();
             } catch (IOException e) {
-            	 JOptionPane.showMessageDialog(null, "Kļūda ierakstot Objektu failā pasutijumu_dati.txt", "Kļūda", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Kļūda ierakstot objektu failā " + FAILS, "Kļūda", JOptionPane.ERROR_MESSAGE);
             }
         }
+
+ 
     }
-}

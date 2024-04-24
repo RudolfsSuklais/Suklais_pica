@@ -12,7 +12,7 @@ public class pica {
 	    private String telNr;
 	    private String adrese;
 	    private String pastaIndekss;
-
+	 
     
     
     @Override
@@ -32,6 +32,7 @@ public class pica {
         this.telNr = telNr;
         this.adrese = adrese;
         this.pastaIndekss = pastaIndekss;
+    
     }
 
   
