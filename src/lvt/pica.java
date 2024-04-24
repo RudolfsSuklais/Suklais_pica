@@ -1,24 +1,37 @@
 package lvt;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class pica {
-    private String pasutijumaNosaukums;
-    private String picasVeids;
-    private List<String> toppingsList;
+	 private String pasutijumaNosaukums;
+	    private String picasVeids;
+	    private ArrayList<String> izveletieToppingi;
+	    private String picasDiametrs;
+	    private String vards;
+	    private String uzvards;
+	    private String telNr;
+	    private String adrese;
+	    private String pastaIndekss;
+
     
     
     @Override
     public String toString() {
-        return "Pica: " + pasutijumaNosaukums + ", Veids: " + picasVeids +", Toppings: " + toppingsList;
+        return "Pica: " + pasutijumaNosaukums + ", Veids: " + picasVeids +", Toppings: " + izveletieToppingi+", Picas Diametrs: "+picasDiametrs+"\n Piegāde informācija:\nVārds: "+vards+", Uzvārds: "+uzvards+", Tel. nr.: "+telNr+
+        		", Adrese: "+adrese+", Pasta Indekss: "+pastaIndekss;
     }
 
 
-    public pica(String pasutijumaNosaukums, String picasVeids, List<String> toppingsList) {
+    public pica(String pasutijumaNosaukums, String picasVeids, ArrayList<String> izveletieToppingi, String picasDiametrs, String vards, String uzvards, String telNr, String adrese, String pastaIndekss) {
         this.pasutijumaNosaukums = pasutijumaNosaukums;
         this.picasVeids = picasVeids;
-        this.toppingsList = toppingsList;
-        
+        this.izveletieToppingi = izveletieToppingi;
+        this.picasDiametrs = picasDiametrs;
+        this.vards = vards;
+        this.uzvards = uzvards;
+        this.telNr = telNr;
+        this.adrese = adrese;
+        this.pastaIndekss = pastaIndekss;
     }
 
   
@@ -40,12 +53,51 @@ public class pica {
         this.picasVeids = picasVeids;
     }
     
-    public List<String> gettoppingsList() {
-    	return toppingsList;
+  
+
+    public String getpicasDiametrs() {
+    	return picasDiametrs;
     }
     
-    public void settoppingsList(List<String> toppingsList) {
-    	this.toppingsList = toppingsList;
+    public void setpicasDiametrs(String picasDiametrs) {
+    	this.picasDiametrs = picasDiametrs;
+    }
+    public String getvards() {
+    	return vards;
+    }
+    
+    public void setvards(String vards) {
+    	this.vards = vards;
+    }
+    public String getuzvards() {
+    	return uzvards;
+    }
+    
+    public void setuzvards(String uzvards) {
+    	this.uzvards = uzvards;
+    }
+    
+    public String gettelNr() {
+    	return telNr;
+    }
+    
+    public void settelNr(String telNr) {
+    	this.telNr = telNr;
+    }
+    
+    public String getadrese() {
+    	return adrese;
+    }
+    
+    public void setadrese(String adrese) {
+    	this.adrese = adrese;
+    }
+    public String getpastaIndekss() {
+    	return pastaIndekss;
+    }
+    
+    public void setpastaIndekss(String pastaIndekss) {
+    	this.pastaIndekss = pastaIndekss;
     }
 
     
