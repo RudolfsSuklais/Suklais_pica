@@ -18,7 +18,7 @@ public class pica {
     
     @Override
     public String toString() {
-        return "Pica: " + pasutijumaNosaukums + ", Veids: " + picasVeids +", Toppings: " + izveletieToppingi+", Picas Diametrs: "+picasDiametrs+"\n Piegāde informācija:\nVārds: "+vards+", Uzvārds: "+uzvards+", Tel. nr.: "+telNr+
+        return "Nosaukums: " + pasutijumaNosaukums + ", Veids: " + picasVeids +", Toppings: " + izveletieToppingi+", Picas Diametrs: "+picasDiametrs+"cm | Piegāde informācija: Vārds: "+vards+", Uzvārds: "+uzvards+", Tel. nr.: "+telNr+
         		", Adrese: "+adrese+", Pasta Indekss: "+pastaIndekss+", Kopēja cena "+cena+"€";
     }
 

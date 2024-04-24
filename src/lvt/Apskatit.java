@@ -1,23 +1,34 @@
 package lvt;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.JLabel;
+import javax.swing.border.CompoundBorder;
+
+
+
 
 public class Apskatit extends JFrame {
 
@@ -27,6 +38,7 @@ public class Apskatit extends JFrame {
    
     private static final String FAILS = "pagaidu_pasutijuma_dati.txt";
     private static final String CENAS_FAILS = "cenas.txt";
+    private JScrollPane scrollPane;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -57,11 +69,18 @@ public class Apskatit extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
+        Image bilde = new ImageIcon(this.getClass().getResource("/apskatit.png")).getImage();
+        
+        scrollPane = new JScrollPane();
+        scrollPane.setBounds(29, 175, 725, 355);
+        contentPane.add(scrollPane);
+        
   
 
         list = new JList<String>();
-        list.setBounds(23, 31, 711, 499);
-        contentPane.add(list);
+        list.setBorder(new CompoundBorder());
+        list.setBackground(Color.ORANGE);
+        scrollPane.setViewportView(list);
 
         JButton btnNewButton = new JButton("Ielādēt pasūtījumus");
         btnNewButton.addActionListener(new ActionListener() {
@@ -71,8 +90,35 @@ public class Apskatit extends JFrame {
                 nolasitUnParaditInformaciju();
             }
         });
-        btnNewButton.setBounds(281, 541, 200, 23);
+        btnNewButton.setOpaque(false); 
+        btnNewButton.setContentAreaFilled(false); 
+        btnNewButton.setBorderPainted(false);
+        btnNewButton.setBorder(new LineBorder(new Color(255, 255, 255, 100), 2));
+        
+        
+        JLabel lblNewLabel = new JLabel("");
+        lblNewLabel.setIcon(new ImageIcon(bilde));
+        lblNewLabel.setBounds(0, 0, 784, 761);
+        contentPane.add(lblNewLabel);
+        btnNewButton.setBounds(230, 552, 338, 72);
         contentPane.add(btnNewButton);
+        Font font = new Font("Arial", Font.PLAIN, 14); 
+        list.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+        
+        JButton izdzest = new JButton("Izdzēst pasūtījumus");
+        izdzest.setOpaque(false); 
+        izdzest.setContentAreaFilled(false); 
+        izdzest.setBorderPainted(false);
+        izdzest.setBorder(new LineBorder(new Color(255, 255, 255, 100), 2));
+        izdzest.setBounds(10, 643, 366, 78);
+        izdzest.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                izdzestPasutijumus();
+            }
+        });
+        contentPane.add(izdzest);
+    
     }
 
     public void nolasitUnParaditInformaciju() {
@@ -200,8 +246,14 @@ public class Apskatit extends JFrame {
                 JOptionPane.showMessageDialog(null, "Kļūda ierakstot objektu failā " + FAILS, "Kļūda", JOptionPane.ERROR_MESSAGE);
             }
         }
-        
-        
-
- 
+        private void izdzestPasutijumus() {
+            try (BufferedWriter wr = new BufferedWriter(new FileWriter(FAILS, false))) {
+                wr.write(""); // Notīra faila saturu
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Kļūda izdzēšot pasūtījumus", "Kļūda", JOptionPane.ERROR_MESSAGE);
+            }
+            // Atjauno JList ar tukšu sarakstu
+            DefaultListModel<String> emptyModel = new DefaultListModel<>();
+            list.setModel(emptyModel);
+        }
     }
