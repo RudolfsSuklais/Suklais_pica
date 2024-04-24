@@ -1,6 +1,8 @@
 package lvt;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -8,16 +10,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
 
 public class Apskatit extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
+    private JList<String> list; 
    
 
     public static void main(String[] args) {
@@ -44,11 +49,47 @@ public class Apskatit extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        JList list = new JList();
-        list.setBounds(87, 157, 431, 284);
+        list = new JList<String>();
+        list.setBounds(23, 31, 711, 499);
         contentPane.add(list);
+        
+        JButton btnNewButton = new JButton("New button");
+        btnNewButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Call the method to read and display information from the file
+                nolasitUnParaditInformaciju();
+            } 
+        });
+        btnNewButton.setBounds(281, 541, 89, 23);
+        contentPane.add(btnNewButton);
+
+        
+    }
+    public void nolasitUnParaditInformaciju() {
+        ArrayList<String> saraksts = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("pasutijumu_dati.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                saraksts.add(line);
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Kļūda nolasot failu pasutijumu_dati.txt", "Kļūda", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        // Izveidojam jaunu modeli JList elementiem
+        DefaultListModel<String> DLM = new DefaultListModel<>();
+        
+        // Pievienojam katru elementu no saraksta uz JList modeli
+        for (String element : saraksts) {
+            DLM.addElement(element);
+        }
+        
+        // Iestatam JList modeli
+        list.setModel(DLM);
     }
 
+    
     public pica nolasitUnSaglabatInformaciju() {
         String pasutijumaNosaukums = "";
         String picasVeids = "";
@@ -145,5 +186,4 @@ public class Apskatit extends JFrame {
             }
         }
     }
-
 }
