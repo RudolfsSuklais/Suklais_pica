@@ -26,7 +26,7 @@ public class Apskatit extends JFrame {
     private JList<String> list; 
    
     private static final String FAILS = "pagaidu_pasutijuma_dati.txt";
- 
+    private static final String CENAS_FAILS = "cenas.txt";
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -173,9 +173,21 @@ public class Apskatit extends JFrame {
           
             JOptionPane.showMessageDialog(null, "Kļūda nolasot failu uzvards.txt", "Kļūda", JOptionPane.ERROR_MESSAGE);
         }
+        double summa = 0.0;
+        try (BufferedReader br = new BufferedReader(new FileReader(CENAS_FAILS))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                double cena = Double.parseDouble(line.trim());
+                summa += cena;
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Kļūda nolasot failu " + CENAS_FAILS, "Kļūda", JOptionPane.ERROR_MESSAGE);
+        }
+        
+     
         
       
-        return new pica(pasutijumaNosaukums, picasVeids, izveletieToppingi, picasDiametrs, vards, uzvards, telNr, adrese, pastaIndekss);
+        return new pica(pasutijumaNosaukums, picasVeids, izveletieToppingi, picasDiametrs, vards, uzvards, telNr, adrese, pastaIndekss, summa);
     }
   
  
@@ -188,6 +200,8 @@ public class Apskatit extends JFrame {
                 JOptionPane.showMessageDialog(null, "Kļūda ierakstot objektu failā " + FAILS, "Kļūda", JOptionPane.ERROR_MESSAGE);
             }
         }
+        
+        
 
  
     }
