@@ -64,15 +64,25 @@ public class Main2 extends JFrame {
         });
 	
 		
-	JButton btnNewButton_1 = new JButton("");
-	btnNewButton_1.setOpaque(false);
-	btnNewButton_1.setForeground(Color.WHITE);
-	btnNewButton_1.setFont(new Font("Gill Sans Ultra Bold", Font.PLAIN, 28));
-	btnNewButton_1.setContentAreaFilled(false);
-	btnNewButton_1.setBorderPainted(false);
-	btnNewButton_1.setBorder(new LineBorder(new Color(255, 255, 255, 100), 2));
-	btnNewButton_1.setBounds(241, 371, 321, 77);
-	contentPane.add(btnNewButton_1);
+	JButton apskatitSutijumu = new JButton("");
+	apskatitSutijumu.addActionListener(new ActionListener(){
+    	
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Apskatit sf = new Apskatit(); 
+			sf.setVisible(true);
+			dispose();
+		} 
+    });
+	apskatitSutijumu.setOpaque(false);
+	apskatitSutijumu.setForeground(Color.WHITE);
+	apskatitSutijumu.setFont(new Font("Gill Sans Ultra Bold", Font.PLAIN, 28));
+	apskatitSutijumu.setContentAreaFilled(false);
+	apskatitSutijumu.setBorderPainted(false);
+	apskatitSutijumu.setBorder(new LineBorder(new Color(255, 255, 255, 100), 2));
+	apskatitSutijumu.setBounds(241, 371, 321, 77);
+	contentPane.add(apskatitSutijumu);
 	btnNewButton.setForeground(new Color(255, 255, 255));
 	btnNewButton.setFont(new Font("Gill Sans Ultra Bold", Font.PLAIN, 22));
 

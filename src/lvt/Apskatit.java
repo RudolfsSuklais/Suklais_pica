@@ -2,11 +2,14 @@ package lvt;
 
 import java.awt.EventQueue;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -24,7 +27,7 @@ public class Apskatit extends JFrame {
                 	 Apskatit frame = new Apskatit();
                      frame.setVisible(true);
                      pica picasObjekts = frame.nolasitUnSaglabatInformaciju();
-                    System.out.println(picasObjekts);
+                     Faili.ierakstitObjektuFaila(picasObjekts);
                     
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -39,6 +42,11 @@ public class Apskatit extends JFrame {
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
+        contentPane.setLayout(null);
+        
+        JList list = new JList();
+        list.setBounds(87, 157, 431, 284);
+        contentPane.add(list);
     }
 
     public pica nolasitUnSaglabatInformaciju() {
@@ -75,55 +83,67 @@ public class Apskatit extends JFrame {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+         
             JOptionPane.showMessageDialog(null, "Kļūda nolasot failu izveletieToppingi.txt", "Kļūda", JOptionPane.ERROR_MESSAGE);
         }
 
         try (BufferedReader br = new BufferedReader(new FileReader("picasDiametrs.txt"))) {
             picasDiametrs = br.readLine();
         } catch (IOException e) {
-            e.printStackTrace();
+            
             JOptionPane.showMessageDialog(null, "Kļūda nolasot failu picasDiametrs.txt", "Kļūda", JOptionPane.ERROR_MESSAGE);
         }
 
         try (BufferedReader br = new BufferedReader(new FileReader("vards.txt"))) {
             vards = br.readLine();
         } catch (IOException e) {
-            e.printStackTrace();
+           
             JOptionPane.showMessageDialog(null, "Kļūda nolasot failu vards.txt", "Kļūda", JOptionPane.ERROR_MESSAGE);
         }
 
         try (BufferedReader br = new BufferedReader(new FileReader("uzvards.txt"))) {
             uzvards = br.readLine();
         } catch (IOException e) {
-            e.printStackTrace();
+          
             JOptionPane.showMessageDialog(null, "Kļūda nolasot failu uzvards.txt", "Kļūda", JOptionPane.ERROR_MESSAGE);
         }
         
         try (BufferedReader br = new BufferedReader(new FileReader("telNr.txt"))) {
             telNr = br.readLine();
         } catch (IOException e) {
-            e.printStackTrace();
+           
             JOptionPane.showMessageDialog(null, "Kļūda nolasot failu uzvards.txt", "Kļūda", JOptionPane.ERROR_MESSAGE);
         }
         
         try (BufferedReader br = new BufferedReader(new FileReader("adrese.txt"))) {
             adrese = br.readLine();
         } catch (IOException e) {
-            e.printStackTrace();
+         
             JOptionPane.showMessageDialog(null, "Kļūda nolasot failu uzvards.txt", "Kļūda", JOptionPane.ERROR_MESSAGE);
         }
         
         try (BufferedReader br = new BufferedReader(new FileReader("pastaIndekss.txt"))) {
             pastaIndekss = br.readLine();
         } catch (IOException e) {
-            e.printStackTrace();
+          
             JOptionPane.showMessageDialog(null, "Kļūda nolasot failu uzvards.txt", "Kļūda", JOptionPane.ERROR_MESSAGE);
         }
         
       
         return new pica(pasutijumaNosaukums, picasVeids, izveletieToppingi, picasDiametrs, vards, uzvards, telNr, adrese, pastaIndekss);
     }
+    public class Faili {
+        private static final String FAILS = "pasutijumu_dati.txt";
 
+        public static void ierakstitObjektuFaila(pica pica) {
+            try (BufferedWriter wr = new BufferedWriter(new FileWriter(FAILS, true))) {
+                
+                wr.write(pica.toString());
+                wr.newLine();
+            } catch (IOException e) {
+            	 JOptionPane.showMessageDialog(null, "Kļūda ierakstot Objektu failā pasutijumu_dati.txt", "Kļūda", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
 
 }
