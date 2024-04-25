@@ -66,7 +66,7 @@ btnNewButton.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Main1 sf = new Main1(); 
+				Main2 sf = new Main2(); 
 				sf.setVisible(true);
 				dispose();
 			} 

@@ -35,7 +35,6 @@ public class Apskatit extends JFrame {
     private JList<String> list; 
    
     private static final String FAILS = "pagaidu_pasutijuma_dati.txt";
-    private static final String CENAS_FAILS = "cenas.txt";
     private JScrollPane scrollPane;
 
     public static void main(String[] args) {
@@ -114,6 +113,21 @@ public class Apskatit extends JFrame {
             }
         });
         contentPane.add(izdzest);
+        
+        JButton atpakal = new JButton("");
+        atpakal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	Main2 sf = new Main2(); 
+    			sf.setVisible(true);
+    			dispose();
+            }
+        });
+        atpakal.setContentAreaFilled(false); 
+        atpakal.setBorderPainted(false);
+        atpakal.setBorder(new LineBorder(new Color(255, 255, 255, 100), 2));
+        atpakal.setBounds(430, 648, 335, 70);
+        contentPane.add(atpakal);
     
     }
 

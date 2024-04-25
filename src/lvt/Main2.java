@@ -96,6 +96,23 @@ public class Main2 extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(bilde));
 		lblNewLabel.setBounds(0, 0, 784, 761);
 		contentPane.add(lblNewLabel);
-	}
+		
+		JButton beigt = new JButton("");
+		beigt.addActionListener(new ActionListener(){
+	    	
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			} 
+	    });
+		beigt.setOpaque(false);
+		beigt.setForeground(Color.WHITE);
+		beigt.setFont(new Font("Dialog", Font.PLAIN, 22));
+		beigt.setContentAreaFilled(false);
+		beigt.setBorderPainted(false);
+		beigt.setBorder(new LineBorder(new Color(255, 255, 255, 100), 2));
+		beigt.setBounds(241, 474, 321, 77);
+		contentPane.add(beigt);
+	}
 }
