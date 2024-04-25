@@ -102,7 +102,6 @@ public class Apskatit extends JFrame {
         contentPane.add(lblNewLabel);
         btnNewButton.setBounds(230, 552, 338, 72);
         contentPane.add(btnNewButton);
-        Font font = new Font("Arial", Font.PLAIN, 14); 
         list.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
         
         JButton izdzest = new JButton("Izdzēst pasūtījumus");
@@ -248,12 +247,12 @@ public class Apskatit extends JFrame {
         }
         private void izdzestPasutijumus() {
             try (BufferedWriter wr = new BufferedWriter(new FileWriter(FAILS, false))) {
-                wr.write(""); // Notīra faila saturu
+                wr.write(""); 
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "Kļūda izdzēšot pasūtījumus", "Kļūda", JOptionPane.ERROR_MESSAGE);
             }
-            // Atjauno JList ar tukšu sarakstu
-            DefaultListModel<String> emptyModel = new DefaultListModel<>();
-            list.setModel(emptyModel);
+            
+            DefaultListModel<String> izdzest = new DefaultListModel<>();
+            list.setModel(izdzest);
         }
     }
