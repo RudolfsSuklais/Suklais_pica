@@ -12,17 +12,18 @@ public class pica {
 	    private String telNr;
 	    private String adrese;
 	    private String pastaIndekss;
-
+	    private double cena;
+	 
     
     
     @Override
     public String toString() {
-        return "Pica: " + pasutijumaNosaukums + ", Veids: " + picasVeids +", Toppings: " + izveletieToppingi+", Picas Diametrs: "+picasDiametrs+"\n Piegāde informācija:\nVārds: "+vards+", Uzvārds: "+uzvards+", Tel. nr.: "+telNr+
-        		", Adrese: "+adrese+", Pasta Indekss: "+pastaIndekss;
+        return "Nosaukums: " + pasutijumaNosaukums + ", Veids: " + picasVeids +", Toppings: " + izveletieToppingi+", Picas Diametrs: "+picasDiametrs+"cm \nPiegāde informācija:\nVārds: "+vards+", Uzvārds: "+uzvards+", Tel. nr.: "+telNr+
+        		", Adrese: "+adrese+", Pasta Indekss: LV-"+pastaIndekss+"\nKopēja cena "+cena+"€"+"\n----------------------------------------------------------------------------------";
     }
 
 
-    public pica(String pasutijumaNosaukums, String picasVeids, ArrayList<String> izveletieToppingi, String picasDiametrs, String vards, String uzvards, String telNr, String adrese, String pastaIndekss) {
+    public pica(String pasutijumaNosaukums, String picasVeids, ArrayList<String> izveletieToppingi, String picasDiametrs, String vards, String uzvards, String telNr, String adrese, String pastaIndekss, Double cena) {
         this.pasutijumaNosaukums = pasutijumaNosaukums;
         this.picasVeids = picasVeids;
         this.izveletieToppingi = izveletieToppingi;
@@ -32,6 +33,8 @@ public class pica {
         this.telNr = telNr;
         this.adrese = adrese;
         this.pastaIndekss = pastaIndekss;
+        this.cena = cena;
+    
     }
 
   
@@ -98,6 +101,14 @@ public class pica {
     
     public void setpastaIndekss(String pastaIndekss) {
     	this.pastaIndekss = pastaIndekss;
+    }
+    
+    public double getCena() {
+    	return cena;
+    }
+    
+    public void setCena(double cena) {
+    	this.cena = cena;
     }
 
     

@@ -6,6 +6,8 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -137,21 +139,27 @@ public class Main4 extends JFrame {
 							public void actionPerformed(ActionEvent e) {
 								if (checkBoxSiers.isSelected()) {
 									izveletieToppingi.add("Siers");
+									 saglabaCenuFaila(0.3);
 								}
 								if (checkBoxSenes.isSelected()) {
 									izveletieToppingi.add("Sēnes");
+									 saglabaCenuFaila(0.25);
 								}
 								if (checkBoxMaltaGala.isSelected()) {
 									izveletieToppingi.add("Maltā gaļa");
+									 saglabaCenuFaila(0.55);
 								}
 								if (checkBoxOlives.isSelected()) {
 									izveletieToppingi.add("Olīves");
+									 saglabaCenuFaila(0.15);
 								}
 								if (checkBoxAnanass.isSelected()) {
 									izveletieToppingi.add("Ananass");
+									 saglabaCenuFaila(0.1);
 								}
 								if (checkBoxHalapeno.isSelected()) {
 									izveletieToppingi.add("Halapeno");
+									 saglabaCenuFaila(0.2);
 								}
 								saglabaToppingsFaila(izveletieToppingi);
 								
@@ -205,7 +213,17 @@ public class Main4 extends JFrame {
 	}
 	
 	
-
+	private void saglabaCenuFaila(double cena) {
+	    String fails = "cenas.txt";
+	    
+	    try (PrintWriter wr = new PrintWriter(new FileWriter(fails, true))) {
+	        wr.println(cena);
+	    } catch (IOException e) {
+	        System.err.println("Kļūda: Neizdevās saglabāt cenu failā " + fails);
+	        
+	    }
+	}
+	
 	
 	
 }

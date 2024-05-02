@@ -41,6 +41,7 @@ public class Main3 extends JFrame {
 	private JLabel lblNewLabel_4;
 	private JLabel lblNewLabel_5;
 	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -120,18 +121,23 @@ public class Main3 extends JFrame {
 			    	
 			         if(rdbtnNewRadioButton.isSelected()) {
 			        	 saglabaPicuFaila("Lauku");
+			        	  saglabaCenuFaila(4.5);
 			         }
 			         if(rdbtnNewRadioButton_1.isSelected()) {
 			        	 saglabaPicuFaila("Pikantā");
+			        	 saglabaCenuFaila(4);
 			         }
 			         if(rdbtnNewRadioButton_2.isSelected()) {
 			        	 saglabaPicuFaila("Šķiņķa");
+			        	 saglabaCenuFaila(5.2);
 			         }
 			         if(rdbtnNewRadioButton_3.isSelected()) {
 			        	 saglabaPicuFaila("Margarita");
+			        	 saglabaCenuFaila(3.8);
 			         }
 			         if(rdbtnNewRadioButton_4.isSelected()) {
 			        	 saglabaPicuFaila("Salami");
+			        	 saglabaCenuFaila(5);
 			         }
 			         
 			        boolean irTukss = textField.getText().isEmpty() || 
@@ -295,7 +301,7 @@ public class Main3 extends JFrame {
 	       
 	    } catch (FileNotFoundException e) {
 	        System.err.println("Kļūda: Neizdevās saglabāt pasūtījuma nosaukumu failā " + fails);
-	        e.printStackTrace();
+	     
 	    }
 	}
 	
@@ -311,10 +317,19 @@ public class Main3 extends JFrame {
 	        
 	    } catch (FileNotFoundException e) {
 	        System.err.println("Kļūda: Neizdevās saglabāt picas veidu failā " + fails);
-	        e.printStackTrace();
+	        
 	    }
 	}
 
-	
+	private void saglabaCenuFaila(double cena) {
+	    String fails = "cenas.txt";
+	    
+	    try (PrintWriter wr = new PrintWriter(fails)) {
+	        wr.println(cena);
+	    } catch (FileNotFoundException e) {
+	        System.err.println("Kļūda: Neizdevās saglabāt cenu failā " + fails);
+	        
+	    }
+	}
 	
 }
