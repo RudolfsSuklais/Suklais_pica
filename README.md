@@ -1,5 +1,5 @@
-![image](https://github.com/RudolfsSuklais/Suklais_pica/assets/131018693/5970500f-7c70-46c4-9c72-4b3a6a5d82eb)# Projekts "Suklais_Pica"
-Java projekts, kas realizē picas pasūtījuma sagatavošanu, ieglabāšanu un apstrādi.
+# Projekts "Suklais_Pica"
+### Java projekts, kas realizē picas pasūtījuma sagatavošanu, ieglabāšanu un apstrādi.
 ![Logo](https://github.com/RudolfsSuklais/Suklais_pica/assets/131018693/b4cd8bbf-cac5-4830-85f2-d8e9e50786c0)
 
 ## **1.Skats**
