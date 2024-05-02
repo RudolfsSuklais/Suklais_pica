@@ -40,10 +40,4 @@
  ### Nospiežot izvēli "Apskatīt sūtījumus" nonāksiet šijā logā.
 - [x] Pievienota poga "Ielādēt pasūtījumus" ar kuras palīdzību vidējā sadaļā tiek izvadīti iepriekš saglabātie pasūtījumi.
 - [x] Pievienota poga "Izdzēst pasūtījumus" ar kuras palīdzību tiek izdzēsti visi iepriekš saglabātie pasūtījumi.
-- [x] Pievienota poga "Atpakaļ" ar kuras palīdzību jūs atgriežaties uz iepriekšējo skatu.
-
- ## **Darāmo darbu saraksts: **
- - [x] Praktiski visā projektā vizuālajiem elementiem trūkst garumzīmes tekstā
- - [x] Obligāti tiek prasīts norādīt adresi, taču adrese nav nepieciešama ja mēs paši izvēlamies picu izņemt uz vietas
- - [x] Cena klāt tiek parādīta tikai piedevām, picai un tās izmēram cena nav redzama un klients nevar sekot līdzi tam kā kopējā cena veidojas
- - [x] Nav iespēja pasūtīt vairākas vienāds picas, pasūtījums katrai picai jāveido no jauna
+- [x] Pievienota poga "Atpakaļ" ar kuras palīdzību jūs atgriežaties uz iepriekšējo skatu.  

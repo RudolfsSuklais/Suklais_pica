@@ -1,10 +1,12 @@
-Nosaukums: e2eqe, Veids: Lauku, Toppings: [Siers, Sēnes, Maltā gaļa, Olīves], Picas Diametrs: 20cm 
+Nosaukums: dawdada, Veids: Lauku (4.50 €), Toppings: [Siers (0.30€), Sēnes (0.25€), Maltā gaļa (0.55€)], Picas Diametrs: 50cm 
 Piegāde informācija:
-Vārds: eq2e, Uzvārds: eq2eq2, Tel. nr.: eq2, Adrese: dawdawd, Pasta Indekss: LV-dawd
-Kopēja cena 7.25€
+Vārds: daw, Uzvārds: dawd, Tel. nr.: dawdad, Adrese: dad, Pasta Indekss: LV-adwd
+Piegādes cena 2.50€
+Picu Daudzums: 3
+Kopēja cena 39.30€
 ----------------------------------------------------------------------------------
-Nosaukums: ddawd, Veids: Lauku, Toppings: [Ananass, Halapeno], Picas Diametrs: 50cm 
-Piegāde informācija:
-Vārds: adawd, Uzvārds: dad, Tel. nr.: awdad, Adrese: awdad, Pasta Indekss: LV-dawd
-Kopēja cena 9.8€
+Nosaukums: dawda, Veids: Lauku (4.50 €), Toppings: [Siers (0.30€), Sēnes (0.25€)], Picas Diametrs: 30cm 
+Piegāde nav nepieciešama, tiks savākts uz vietas!
+Daudzums: 2
+Kopēja cena 16.10€
 ----------------------------------------------------------------------------------

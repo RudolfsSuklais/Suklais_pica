@@ -110,7 +110,7 @@ public class Main5 extends JFrame {
 			                !rdbtnNewRadioButton_2.isSelected());
 				 
 			    if(!irTukss) {
-			    	Main7 sf = new Main7();
+			    	Main9 sf = new Main9();
 			    	sf.setVisible(true);
 			    	dispose();
 			    }

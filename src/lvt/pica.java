@@ -12,18 +12,21 @@ public class pica {
 	    private String telNr;
 	    private String adrese;
 	    private String pastaIndekss;
+	    private int daudzums;
 	    private double cena;
 	 
     
     
     @Override
     public String toString() {
+    	String formattedSumma = String.format("%.2f", cena);
+
         return "Nosaukums: " + pasutijumaNosaukums + ", Veids: " + picasVeids +", Toppings: " + izveletieToppingi+", Picas Diametrs: "+picasDiametrs+"cm \nPiegāde informācija:\nVārds: "+vards+", Uzvārds: "+uzvards+", Tel. nr.: "+telNr+
-        		", Adrese: "+adrese+", Pasta Indekss: LV-"+pastaIndekss+"\nKopēja cena "+cena+"€"+"\n----------------------------------------------------------------------------------";
+        		", Adrese: "+adrese+", Pasta Indekss: LV-"+pastaIndekss+"\nPiegādes cena 2.50€"+"\nPicu Daudzums: "+daudzums+"\nKopēja cena "+formattedSumma+"€\n----------------------------------------------------------------------------------";
     }
 
 
-    public pica(String pasutijumaNosaukums, String picasVeids, ArrayList<String> izveletieToppingi, String picasDiametrs, String vards, String uzvards, String telNr, String adrese, String pastaIndekss, Double cena) {
+    public pica(String pasutijumaNosaukums, String picasVeids, ArrayList<String> izveletieToppingi, String picasDiametrs, String vards, String uzvards, String telNr, String adrese, String pastaIndekss, Double cena, int daudzums) {
         this.pasutijumaNosaukums = pasutijumaNosaukums;
         this.picasVeids = picasVeids;
         this.izveletieToppingi = izveletieToppingi;
@@ -34,6 +37,7 @@ public class pica {
         this.adrese = adrese;
         this.pastaIndekss = pastaIndekss;
         this.cena = cena;
+        this.daudzums = daudzums;
     
     }
 
@@ -109,6 +113,13 @@ public class pica {
     
     public void setCena(double cena) {
     	this.cena = cena;
+    }
+    public double getDaudzums() {
+    	return daudzums;
+    }
+    
+    public void setDaudzums(int daudzums) {
+    	this.daudzums = daudzums;
     }
 
     

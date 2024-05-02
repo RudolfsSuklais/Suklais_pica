@@ -19,6 +19,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.JSpinner;
 
 public class Main3 extends JFrame {
 
@@ -40,6 +41,8 @@ public class Main3 extends JFrame {
 	private int toppings = 3;
 	private JLabel lblNewLabel_4;
 	private JLabel lblNewLabel_5;
+	private JLabel lblNewLabel_6;
+	
 	
 	
 	/**
@@ -81,13 +84,25 @@ public class Main3 extends JFrame {
 		
 		ButtonGroup buttonGroup = new ButtonGroup(); 
 		
-		lblNewLabel_5 = new JLabel("Ne");
+		 JSpinner spinner = new JSpinner();
+	        spinner.setFont(new Font("MV Boli", Font.PLAIN, 14));
+	        spinner.setBackground(new Color(128, 128, 0));
+	        spinner.setBounds(122, 595, 40, 20);
+	        saglabaDaudzumu((int)spinner.getValue());
+	        contentPane.add(spinner);
+		
+		lblNewLabel_6 = new JLabel("Daudzums:");
+		lblNewLabel_6.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
+		lblNewLabel_6.setBounds(73, 558, 201, 36);
+		contentPane.add(lblNewLabel_6);
+		
+		lblNewLabel_5 = new JLabel("Nē");
 		lblNewLabel_5.setForeground(Color.WHITE);
 		lblNewLabel_5.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 22));
 		lblNewLabel_5.setBounds(226, 514, 46, 36);
 		contentPane.add(lblNewLabel_5);
 		
-		lblNewLabel_4 = new JLabel("Ja");
+		lblNewLabel_4 = new JLabel("Jā");
 		lblNewLabel_4.setForeground(new Color(255, 255, 255));
 		lblNewLabel_4.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 22));
 		lblNewLabel_4.setBounds(106, 514, 46, 36);
@@ -101,12 +116,12 @@ public class Main3 extends JFrame {
 	
 		
 		
-		rdbtnNewRadioButton = new JRadioButton("Lauku");
+		rdbtnNewRadioButton = new JRadioButton("Lauku (4.50€)");
 		rdbtnNewRadioButton.setIcon(new ImageIcon(this.getClass().getResource("/radioButtonUnchecked.png")));
 		rdbtnNewRadioButton.setSelectedIcon(new ImageIcon(this.getClass().getResource("/radioButtonChecked.png")));
 		rdbtnNewRadioButton.setOpaque(false);
 		rdbtnNewRadioButton.setFont(new Font("Trebuchet MS", Font.ITALIC, 16));
-		rdbtnNewRadioButton.setBounds(182, 320, 109, 23);
+		rdbtnNewRadioButton.setBounds(182, 320, 145, 23);
 		contentPane.add(rdbtnNewRadioButton);
 		buttonGroup.add(rdbtnNewRadioButton);
 		
@@ -114,29 +129,30 @@ public class Main3 extends JFrame {
 		  btnNewButton_1.addActionListener(new ActionListener() {
 			  
 			    public void actionPerformed(ActionEvent e) {
+			    	saglabaDaudzumu((int)spinner.getValue());
 			    	 String nosaukums = textField.getText();
 			         if (!nosaukums.isEmpty()) {
 			        	 saglabaNosaukumuFaila(nosaukums);
 			         }
 			    	
 			         if(rdbtnNewRadioButton.isSelected()) {
-			        	 saglabaPicuFaila("Lauku");
+			        	 saglabaPicuFaila("Lauku (4.50 €)");
 			        	  saglabaCenuFaila(4.5);
 			         }
 			         if(rdbtnNewRadioButton_1.isSelected()) {
-			        	 saglabaPicuFaila("Pikantā");
+			        	 saglabaPicuFaila("Pikantā (4.00 €)");
 			        	 saglabaCenuFaila(4);
 			         }
 			         if(rdbtnNewRadioButton_2.isSelected()) {
-			        	 saglabaPicuFaila("Šķiņķa");
+			        	 saglabaPicuFaila("Šķiņķa (5.20 €)");
 			        	 saglabaCenuFaila(5.2);
 			         }
 			         if(rdbtnNewRadioButton_3.isSelected()) {
-			        	 saglabaPicuFaila("Margarita");
+			        	 saglabaPicuFaila("Margarita (3.80 €)");
 			        	 saglabaCenuFaila(3.8);
 			         }
 			         if(rdbtnNewRadioButton_4.isSelected()) {
-			        	 saglabaPicuFaila("Salami");
+			        	 saglabaPicuFaila("Salami (5.00 €)");
 			        	 saglabaCenuFaila(5);
 			         }
 			         
@@ -146,7 +162,7 @@ public class Main3 extends JFrame {
 			                !rdbtnNewRadioButton_2.isSelected() && 
 			                !rdbtnNewRadioButton_3.isSelected() && 
 			                !rdbtnNewRadioButton_4.isSelected()) ||
-			                (pogaJa.isSelected() && pogaNe.isSelected());
+			                (pogaJa.isSelected() && pogaNe.isSelected() || (int)spinner.getValue()<=0);
 			        
 			        if (irTukss) {
 			            
@@ -164,6 +180,9 @@ public class Main3 extends JFrame {
 			            }
 			            if(toppings==3) {
 			            	lblNewLabel_3.setForeground(Color.RED);
+			            }
+			            if((int)spinner.getValue()<=0) {
+			            	lblNewLabel_6.setForeground(Color.RED);
 			            }
 			        } else {
 			        	if (toppings == 1) {
@@ -189,30 +208,30 @@ public class Main3 extends JFrame {
 	        btnNewButton_1.setBorder(new LineBorder(new Color(255, 255, 255, 100), 2));
 	        contentPane.add(btnNewButton_1);
 		
-		rdbtnNewRadioButton_4 = new JRadioButton("Salami");
+		rdbtnNewRadioButton_4 = new JRadioButton("Salami (5.00 €)");
 		rdbtnNewRadioButton_4.setIcon(new ImageIcon(this.getClass().getResource("/radioButtonUnchecked.png")));
 		rdbtnNewRadioButton_4.setSelectedIcon(new ImageIcon(this.getClass().getResource("/radioButtonChecked.png")));
 		rdbtnNewRadioButton_4.setOpaque(false);
 		rdbtnNewRadioButton_4.setFont(new Font("Trebuchet MS", Font.ITALIC, 16));
-		rdbtnNewRadioButton_4.setBounds(182, 425, 109, 23);
+		rdbtnNewRadioButton_4.setBounds(182, 425, 165, 23);
 		contentPane.add(rdbtnNewRadioButton_4);
 		buttonGroup.add(rdbtnNewRadioButton_4);
 		
-		rdbtnNewRadioButton_3 = new JRadioButton("Margarita");
+		rdbtnNewRadioButton_3 = new JRadioButton("Margarita (3.80 €)");
 		rdbtnNewRadioButton_3.setIcon(new ImageIcon(this.getClass().getResource("/radioButtonUnchecked.png")));
 		rdbtnNewRadioButton_3.setSelectedIcon(new ImageIcon(this.getClass().getResource("/radioButtonChecked.png")));
 		rdbtnNewRadioButton_3.setOpaque(false);
 		rdbtnNewRadioButton_3.setFont(new Font("Trebuchet MS", Font.ITALIC, 16));
-		rdbtnNewRadioButton_3.setBounds(182, 399, 109, 23);
+		rdbtnNewRadioButton_3.setBounds(182, 399, 165, 23);
 		contentPane.add(rdbtnNewRadioButton_3);
 		buttonGroup.add(rdbtnNewRadioButton_3);
 		
-		rdbtnNewRadioButton_2 = new JRadioButton("Šķiņķa");
+		rdbtnNewRadioButton_2 = new JRadioButton("Šķiņķa (5.20 €)");
 		rdbtnNewRadioButton_2.setIcon(new ImageIcon(this.getClass().getResource("/radioButtonUnchecked.png")));
 		rdbtnNewRadioButton_2.setSelectedIcon(new ImageIcon(this.getClass().getResource("/radioButtonChecked.png")));
 		rdbtnNewRadioButton_2.setOpaque(false);
 		rdbtnNewRadioButton_2.setFont(new Font("Trebuchet MS", Font.ITALIC, 16));
-		rdbtnNewRadioButton_2.setBounds(182, 373, 109, 23);
+		rdbtnNewRadioButton_2.setBounds(182, 373, 155, 23);
 		contentPane.add(rdbtnNewRadioButton_2);
 		buttonGroup.add(rdbtnNewRadioButton_2);
 		
@@ -237,12 +256,12 @@ public class Main3 extends JFrame {
 		lblNewLabel_1.setBounds(74, 263, 201, 36);
 		contentPane.add(lblNewLabel_1);
 		
-		rdbtnNewRadioButton_1 = new JRadioButton("Pikantā");
+		rdbtnNewRadioButton_1 = new JRadioButton("Pikantā (4.00 €)");
 		rdbtnNewRadioButton_1.setIcon(new ImageIcon(this.getClass().getResource("/radioButtonUnchecked.png")));
 		rdbtnNewRadioButton_1.setSelectedIcon(new ImageIcon(this.getClass().getResource("/radioButtonChecked.png")));
 		rdbtnNewRadioButton_1.setOpaque(false);
 		rdbtnNewRadioButton_1.setFont(new Font("Trebuchet MS", Font.ITALIC, 16));
-		rdbtnNewRadioButton_1.setBounds(182, 346, 109, 23);
+		rdbtnNewRadioButton_1.setBounds(182, 346, 155, 23);
 		contentPane.add(rdbtnNewRadioButton_1);
 		buttonGroup.add(rdbtnNewRadioButton_1);
 		lblNewLabel.setIcon(new ImageIcon(bilde));
@@ -321,6 +340,21 @@ public class Main3 extends JFrame {
 	    }
 	}
 
+	private void saglabaDaudzumu(int daudzums) {
+        
+        String fails = "daudzums.txt";
+        
+        try (PrintWriter wr = new PrintWriter(fails)) {
+            
+            wr.println(daudzums);
+            
+            
+        } catch (FileNotFoundException e) {
+            System.err.println("Kļūda: Neizdevās saglabāt picas veidu failā " + fails);
+            
+        }
+    }
+	
 	private void saglabaCenuFaila(double cena) {
 	    String fails = "cenas.txt";
 	    
@@ -331,5 +365,4 @@ public class Main3 extends JFrame {
 	        
 	    }
 	}
-	
 }

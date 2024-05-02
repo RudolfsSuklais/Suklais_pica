@@ -138,27 +138,27 @@ public class Main4 extends JFrame {
 							
 							public void actionPerformed(ActionEvent e) {
 								if (checkBoxSiers.isSelected()) {
-									izveletieToppingi.add("Siers");
+									izveletieToppingi.add("Siers (0.30€)");
 									 saglabaCenuFaila(0.3);
 								}
 								if (checkBoxSenes.isSelected()) {
-									izveletieToppingi.add("Sēnes");
+									izveletieToppingi.add("Sēnes (0.25€)");
 									 saglabaCenuFaila(0.25);
 								}
 								if (checkBoxMaltaGala.isSelected()) {
-									izveletieToppingi.add("Maltā gaļa");
+									izveletieToppingi.add("Maltā gaļa (0.55€)");
 									 saglabaCenuFaila(0.55);
 								}
 								if (checkBoxOlives.isSelected()) {
-									izveletieToppingi.add("Olīves");
+									izveletieToppingi.add("Olīves (0.15€)");
 									 saglabaCenuFaila(0.15);
 								}
 								if (checkBoxAnanass.isSelected()) {
-									izveletieToppingi.add("Ananass");
+									izveletieToppingi.add("Ananass (0.10€)");
 									 saglabaCenuFaila(0.1);
 								}
 								if (checkBoxHalapeno.isSelected()) {
-									izveletieToppingi.add("Halapeno");
+									izveletieToppingi.add("Halapeno (0.20€)");
 									 saglabaCenuFaila(0.2);
 								}
 								saglabaToppingsFaila(izveletieToppingi);
